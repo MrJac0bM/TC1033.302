@@ -26,7 +26,7 @@ public:
     }
 
     void agitar() const {
-        std::cout << "Agitando la coctelera: " << nombre << std::endl;
+        std::cout << "Agitando con la coctelera: " << nombre << std::endl;
     }
 
 private:
@@ -91,3 +91,4 @@ private:
     std::string nombre;
     double precio;
 };
+

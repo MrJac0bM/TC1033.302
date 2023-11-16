@@ -1,33 +1,44 @@
+#include "Cliente.h"
+#include "Bebida.h"
+#include "Bartender.h"
+#include "Cocteleria.h"
 #include <iostream>
-#include "Bar.h"
-/*Mi proyecto va a crear tres clases orientadas a el manejor de un bar un ejemplo seria que tipos
- de coteles y se le dara un precio ademas de que igual los instrumentos(3 instrumentos) 
-se le dara un nombre y su precio para que al final pueda imprimir el tipo de coctel su costo y que herramientas se esta usando
-*/
+
+using namespace std;
 
 int main() {
-    Coctel coctel1("Margarita", 7.50);
-    Coctel coctel2("Cosmopolitan", 8.50);
-    Coctel coctel3("Pina Colada", 6.50);
-    Coctel coctel4("Daiquiri", 7.00);
-    Coctel coctel5("Mojito", 8.00);
+    // Crear varios clientes
+    Cliente cliente1("Juan", 30, 1);
+    Cliente cliente2("Maria", 25, 2);
+    Cliente cliente3("Carlos", 28, 3);
 
-    Coctelera coctelera1("Coctelera Mágica", 12.99);
-    Coctelera coctelera2("Coctelera Fantástica", 11.99);
-    Coctelera coctelera3("Coctelera de Ensueño", 14.99);
-    Coctelera coctelera4("Coctelera Especial", 13.99);
-    Coctelera coctelera5("Coctelera de Lujo", 16.99);
+    // Crear varias bebidas
+    BebidaCaliente bebidaCaliente1("Café", 1.5);
+    BebidaFria bebidaFria1("Cerveza", 2.0);
+    BebidaCaliente bebidaCaliente2("Té", 1.2);
 
-    Colador colador1("Colador Supremo", 7.99);
-    Colador colador2("Colador Mágico", 6.99);
-    Colador colador3("Colador Profesional", 9.99);
-    Colador colador4("Colador Rápido", 8.99);
-    Colador colador5("Colador Deluxe", 10.99);
-    // Modificar atributos utilizando los métodos set
+    // Crear un bartender
+    Bartender bartender1("Pedro");
 
-    // Llama a funciones adicionales de cada clase
-    coctel1.servir();
-    coctelera1.agitar();
-    colador1.colar();
+    // Crear la Cocteleria
+    Cocteleria cocteleria;
+
+    // Agregar clientes y bartender a la Cocteleria
+    cocteleria.agregarCliente(cliente1);
+    cocteleria.agregarCliente(cliente2);
+    cocteleria.agregarCliente(cliente3);
+    cocteleria.agregarBartender(bartender1);
+
+    // Realizar acciones con los clientes y el bartender
+    cliente1.ordenarBebidaCaliente();
+    bartender1.prepararBebida(bebidaCaliente1);
+
+    cliente2.ordenarBebidaFria();
+    bartender1.prepararBebida(bebidaFria1);
+
+    cliente3.ordenarBebidaCaliente();
+    bartender1.prepararBebida(bebidaCaliente2);
+
     return 0;
 }
+

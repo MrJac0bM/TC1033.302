@@ -1,5 +1,34 @@
 # TC1033.302
-Aquí estaré subiendo tanto mis avances como mi proyecto final de la materia 
-*Mi proyecto va a crear tres clases orientadas a el manejor de un bar un ejemplo seria que tipos
- de coteles y se le dara un precio ademas de que igual los instrumentos(3 instrumentos) 
-se le dara un nombre y su precio para que al final pueda imprimir el tipo de coctel su costo y que herramientas se esta usando*
+# Sistema de Control de Bar
+
+## Problema
+
+Gestionar un bar puede ser un desafío, desde tomar pedidos hasta llevar un control del inventario y generar facturas. Este sistema tiene como objetivo simplificar estas tareas.
+
+## Objetivo
+
+Desarrollar una aplicación que permita a los dueños y empleados de un bar:
+
+- Tomar y gestionar pedidos de bebidas y alimentos.
+- Controlar el inventario de bebidas y alimentos disponibles.
+- Generar facturas para los clientes.
+- Obtener informes y estadísticas sobre las ventas y el desempeño del bar.
+- Asignar tareas y gestionar roles del personal.
+
+## Uso
+
+1. **Tomar Pedidos:**
+   - Accede a la aplicación.
+   - Utiliza la interfaz para registrar los pedidos de los clientes.
+
+2. **Inventario:**
+   - Actualiza el inventario a medida que llegan nuevos suministros o se agotan existencias.
+
+3. **Facturación:**
+   - Genera facturas para los clientes al finalizar los pedidos.
+
+4. **Estadísticas:**
+   - Consulta informes y estadísticas para evaluar el desempeño del bar.
+
+5. **Control de Personal:**
+   - Asigna tareas y gestiona roles del personal para optimizar la eficiencia.

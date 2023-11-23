@@ -24,11 +24,5 @@ Desarrollar una aplicación que permita a los dueños y empleados de un bar:
 2. **Inventario:**
    - Actualiza el inventario a medida que llegan nuevos suministros o se agotan existencias.
 
-3. **Facturación:**
-   - Genera facturas para los clientes al finalizar los pedidos.
-
-4. **Estadísticas:**
-   - Consulta informes y estadísticas para evaluar el desempeño del bar.
-
 5. **Control de Personal:**
    - Asigna tareas y gestiona roles del personal para optimizar la eficiencia.

@@ -1,44 +1,42 @@
+#ifndef COCTELERIA_H
+#define COCTELERIA_H
+
+#include "Bartender.h"
 #include "Cliente.h"
 #include "Bebida.h"
-#include "Bartender.h"
-#include "Cocteleria.h"
-#include <iostream>
 
-using namespace std;
+class Cocteleria {
+private:
+    Bartender bartender;
+    Cliente cliente;
+    BebidaFria mojito;
+    BebidaFria margarita;
+    BebidaCaliente cafeIrlandes;
+    BebidaCaliente chocolateCaliente;
+public:
+    Cocteleria() : bartender("Juan"), mojito("Mojito", 5), margarita("Margarita", 5), cafeIrlandes("Café Irlandés", 5), chocolateCaliente("Chocolate Caliente", 5) {}
+    void abrirBar() {
+        std::cout << "Bienvenido a la coctelería. ¿Qué tipo de bebida te gustaría? (1. Mojito, 2. Margarita, 3. Café Irlandés, 4. Chocolate Caliente): ";
+        int opcion;
+        std::cin >> opcion;
 
-int main() {
-    // Crear varios clientes
-    Cliente cliente1("Juan", 30, 1);
-    Cliente cliente2("Maria", 25, 2);
-    Cliente cliente3("Carlos", 28, 3);
+        switch (opcion) {
+            case 1:
+                bartender.prepararBebida(cliente, mojito);
+                break;
+            case 2:
+                bartender.prepararBebida(cliente, margarita);
+                break;
+            case 3:
+                bartender.prepararBebida(cliente, cafeIrlandes);
+                break;
+            case 4:
+                bartender.prepararBebida(cliente, chocolateCaliente);
+                break;
+            default:
+                std::cout << "Opción no válida.\n";
+        }
+    }
+};
 
-    // Crear varias bebidas
-    BebidaCaliente bebidaCaliente1("Café", 1.5);
-    BebidaFria bebidaFria1("Cerveza", 2.0);
-    BebidaCaliente bebidaCaliente2("Té", 1.2);
-
-    // Crear un bartender
-    Bartender bartender1("Pedro");
-
-    // Crear la Cocteleria
-    Cocteleria cocteleria;
-
-    // Agregar clientes y bartender a la Cocteleria
-    cocteleria.agregarCliente(cliente1);
-    cocteleria.agregarCliente(cliente2);
-    cocteleria.agregarCliente(cliente3);
-    cocteleria.agregarBartender(bartender1);
-
-    // Realizar acciones con los clientes y el bartender
-    cliente1.ordenarBebidaCaliente();
-    bartender1.prepararBebida(bebidaCaliente1);
-
-    cliente2.ordenarBebidaFria();
-    bartender1.prepararBebida(bebidaFria1);
-
-    cliente3.ordenarBebidaCaliente();
-    bartender1.prepararBebida(bebidaCaliente2);
-
-    return 0;
-}
-
+#endif

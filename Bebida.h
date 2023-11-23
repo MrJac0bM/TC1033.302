@@ -1,40 +1,55 @@
 #ifndef BEBIDA_H
 #define BEBIDA_H
 
-#include <string>
 #include <iostream>
+#include <string>
 
-using namespace std;
-
+// Clase Bebida
 class Bebida {
-private:
-    string nombre;
-    float precio;
-
+protected:
+    std::string nombre;
+    int liquido;
 public:
-    Bebida(string nombre, float precio);
+    Bebida(std::string nombre, int liquido) : nombre(nombre), liquido(liquido) {}
+    virtual void servir() = 0;
+    bool haySuficienteLiquido() { return liquido > 0; }
+    void disminuirLiquido() { --liquido; }
 
-    string getNombre();
-    float getPrecio();
+    // Métodos get
+    std::string getNombre() { return nombre; }
+    int getLiquido() { return liquido; }
 
-    void setNombre(string nombre);
-    void setPrecio(float precio);
-
-    void preparar();
+    // Métodos set
+    void setNombre(std::string nuevoNombre) { nombre = nuevoNombre; }
+    void setLiquido(int nuevoLiquido) { liquido = nuevoLiquido; }
 };
 
-class BebidaCaliente : public Bebida {
-public:
-    BebidaCaliente(string nombre, float precio);
-
-    void preparar();
-};
-
+// Clase BebidaFria hereda de Bebida
 class BebidaFria : public Bebida {
 public:
-    BebidaFria(string nombre, float precio);
+    BebidaFria(std::string nombre, int liquido) : Bebida(nombre, liquido) {}
+    void servir() override {
+        if (haySuficienteLiquido()) {
+            std::cout << "Sirviendo una bebida fría llamada " << nombre << ".\n";
+            disminuirLiquido();
+        } else {
+            std::cout << "Lo siento, no hay suficiente líquido para preparar un " << nombre << ".\n";
+        }
+    }
+};
 
-    void preparar();
+// Clase BebidaCaliente hereda de Bebida
+class BebidaCaliente : public Bebida {
+public:
+    BebidaCaliente(std::string nombre, int liquido) : Bebida(nombre, liquido) {}
+    void servir() override {
+        if (haySuficienteLiquido()) {
+            std::cout << "Sirviendo una bebida caliente llamada " << nombre << ".\n";
+            disminuirLiquido();
+        } else {
+            std::cout << "Lo siento, no hay suficiente líquido para preparar un " << nombre << ".\n";
+        }
+    }
 };
 
 #endif

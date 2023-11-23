@@ -1,19 +1,23 @@
 #ifndef BARTENDER_H
 #define BARTENDER_H
 
+#include "Cliente.h"
 #include "Bebida.h"
 
 class Bartender {
 private:
-    string nombre;
-
+    std::string nombre;
 public:
-    Bartender(string nombre);
+    Bartender(std::string nombre) : nombre(nombre) {}
+    void prepararBebida(Cliente& cliente, Bebida& bebida) {
+        std::cout << "El bartender " << nombre << " está preparando la bebida.\n";
+        cliente.ordenar(bebida);
+    }
 
-    string getNombre();
-    void setNombre(string nombre);
-
-    void prepararBebida(Bebida& bebida);
+    // Métodos get y set
+    std::string getNombre() { return nombre; }
+    void setNombre(std::string nuevoNombre) { nombre = nuevoNombre; }
 };
 
 #endif
+

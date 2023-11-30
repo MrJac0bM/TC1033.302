@@ -4,14 +4,20 @@
 #include <iostream>
 #include <string>
 
-// Clase Bebida
+// Clase base Bebida
 class Bebida {
 protected:
     std::string nombre;
     int liquido;
+
 public:
+    // Constructor de la clase Bebida
     Bebida(std::string nombre, int liquido) : nombre(nombre), liquido(liquido) {}
+
+    // Método virtual puro para servir la bebida
     virtual void servir() = 0;
+
+    // Métodos para verificar y modificar el líquido
     bool haySuficienteLiquido() { return liquido > 0; }
     void disminuirLiquido() { --liquido; }
 
@@ -24,10 +30,13 @@ public:
     void setLiquido(int nuevoLiquido) { liquido = nuevoLiquido; }
 };
 
-// Clase BebidaFria hereda de Bebida
+// Clase derivada BebidaFria hereda de Bebida
 class BebidaFria : public Bebida {
 public:
+    // Constructor de la clase BebidaFria
     BebidaFria(std::string nombre, int liquido) : Bebida(nombre, liquido) {}
+
+    // Implementación del método virtual puro para servir la bebida fría
     void servir() override {
         if (haySuficienteLiquido()) {
             std::cout << "Sirviendo una bebida fría llamada " << nombre << ".\n";
@@ -38,10 +47,13 @@ public:
     }
 };
 
-// Clase BebidaCaliente hereda de Bebida
+// Clase derivada BebidaCaliente hereda de Bebida
 class BebidaCaliente : public Bebida {
 public:
+    // Constructor de la clase BebidaCaliente
     BebidaCaliente(std::string nombre, int liquido) : Bebida(nombre, liquido) {}
+
+    // Implementación del método virtual puro para servir la bebida caliente
     void servir() override {
         if (haySuficienteLiquido()) {
             std::cout << "Sirviendo una bebida caliente llamada " << nombre << ".\n";
